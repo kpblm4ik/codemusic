@@ -4,9 +4,9 @@ title: code;music — Процедурный кайф
 custom_css: css/main.css
 ---
 
-# <span class="gradient-text">code;music</span>
-<link rel="stylesheet" href="{{ 'css/main.css' | relative_url }}">
-Архив процедурного аудио. Без авторских прав. Чистый JS.
+<link rel="stylesheet" href="css/main.css">
+
+# code;music
 
 ---
 
