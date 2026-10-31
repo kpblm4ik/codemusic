@@ -1,7 +1,7 @@
 ---
 layout: default
 title: code;music — Процедурный кайф
-custom_css: /css/codemusic.css
+custom_css: /css/main.css
 ---
 
 # <span class="gradient-text">code;music</span>
