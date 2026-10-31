@@ -104,4 +104,12 @@ title: code;music — Процедурный кайф
     
     window.open(githubUrl, '_blank');
   });
+
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const modalOverlay = document.getElementById('modalOverlay');
+const licenseAgreement = document.getElementById('licenseAgreement');
+const submitTrackBtn = document.getElementById('submitTrackBtn');
+const trackAuthor = document.getElementById('trackAuthor');
+const trackCode = document.getElementById('trackCode');
 </script>
