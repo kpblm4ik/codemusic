@@ -4,54 +4,37 @@ title: code;music — Процедурный кайф
 custom_css: /css/main.css
 ---
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>code;music — Процедурный кайф</title>
-    <!-- Подключаем наш внешний файл стилей -->
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
+<div class="catalog-header">
+    <h1 class="gradient-text">code;music</h1>
+    <p>Архив процедурного аудио. Без авторских прав. Чистый JS.</p>
+</div>
 
-    <header>
-        <h1 class="gradient-text">code;music</h1>
-        <p>Архив процедурного аудио. Без авторских прав. Чистый JS.</p>
-    </header>
+<!-- ТРЕК 1: ПОСТ-ПАНК -->
+<div class="track-card">
+    <div class="track-header">
+        <h2 class="track-title gradient-text">Внутренний Глитч</h2>
+        <button class="play-btn" id="playBtn">PLAY</button>
+    </div>
 
-    <main class="catalog">
-        <!-- ТРЕК 1: ПОСТ-ПАНК -->
-        <div class="track-card">
-            <div class="track-header">
-                <h2 class="track-title gradient-text">Внутренний Глитч</h2>
-                <button class="play-btn" id="playBtn">PLAY</button>
-            </div>
-
-            <div class="controls">
-                <div class="control-group">
-                    <label for="bpmRange">Темп (BPM): <span id="bpmVal">120</span></label>
-                    <input type="range" id="bpmRange" min="60" max="180" value="120">
-                </div>
-                <div class="control-group">
-                    <label for="echoRange">Эхо (Delay): <span id="echoVal">35</span>%</label>
-                    <input type="range" id="echoRange" min="0" max="80" value="35">
-                </div>
-            </div>
-
-            <div class="code-box">
-                <button class="copy-btn" onclick="copyCode('codeSnippet')">Copy JS</button>
-                <pre id="codeSnippet">// Загрузка аудиодвижка...</pre>
-            </div>
+    <div class="track-controls">
+        <div class="control-item">
+            <label for="bpmRange">Темп (BPM): <span id="bpmVal">120</span></label>
+            <input type="range" id="bpmRange" min="60" max="180" value="120">
         </div>
-    </main>
+        <div class="control-item">
+            <label for="echoRange">Эхо (Delay): <span id="echoVal">35</span>%</label>
+            <input type="range" id="echoRange" min="0" max="80" value="35">
+        </div>
+    </div>
 
-    <footer>
-        © 2026 codemusic — сделано мастером-конструктором
-    </footer>
+    <div class="code-wrapper">
+        <button class="copy-action-btn" onclick="copyCode()">Copy JS</button>
+        <pre id="codeSnippet">// Инициализация аудиодвижка...</pre>
+    </div>
+</div>
 
-<script>
-// --- ПЕРЕМЕННЫЕ ИНТЕРФЕЙСА ---
+<!-- АУДИОДВИЖОК -->
+<script id="audio-engine-script">
 const playBtn = document.getElementById('playBtn');
 const bpmRange = document.getElementById('bpmRange');
 const bpmVal = document.getElementById('bpmVal');
@@ -59,7 +42,6 @@ const echoRange = document.getElementById('echoRange');
 const echoVal = document.getElementById('echoVal');
 const codeSnippet = document.getElementById('codeSnippet');
 
-// --- НАСТРОЙКИ АУДИО ---
 let audioCtx = null;
 let isPlaying = false;
 let sequencerInterval = null;
@@ -85,7 +67,6 @@ const guitarProgression = [
 
 let masterVolume, delayNode, delayFeedback;
 
-// --- СЛУШАТЕЛИ ИНТЕРФЕЙСА ---
 bpmRange.addEventListener('input', (e) => {
     currentBPM = parseInt(e.target.value);
     bpmVal.innerText = currentBPM;
@@ -147,7 +128,6 @@ function setupFXChain() {
     delayNode.connect(masterVolume);
 }
 
-// --- СИНТЕЗАТОРЫ ЗВУКА ---
 function playKick(time) {
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
@@ -243,14 +223,11 @@ function playNextStep() {
     currentStep = (currentStep + 1) % 32;
 }
 
-// Отображаем исходный код
-codeSnippet.innerText = document.querySelector('script').innerHTML;
+// Забираем строго текстовое содержимое тега с кодом, игнорируя Jekyll
+codeSnippet.innerText = document.getElementById('audio-engine-script').innerHTML.trim();
 
-function copyCode(id) {
-    const target = document.getElementById(id);
-    navigator.clipboard.writeText(target.innerText);
+function copyCode() {
+    navigator.clipboard.writeText(codeSnippet.innerText);
     alert('Код скопирован в буфер обмена!');
 }
 </script>
-</body>
-</html>
