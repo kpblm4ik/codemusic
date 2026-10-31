@@ -1,11 +1,11 @@
 ---
 ---
-/* Сброс стилей и темный фон */
+/* Сброс стилей, темный фон и адаптивность */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background-color: #050508; color: #ffffff; font-family: 'Courier New', Courier, monospace; display: flex; justify-content: center; padding: 20px; }
-.wrapper { width: 100%; max-width: 500px; text-align: center; background-color: #050508; }
+body { background: #050508; color: #fff; font-family: 'Courier New', monospace; display: flex; justify-content: center; padding: 15px; }
+.wrapper { width: 100%; max-width: 500px; text-align: center; }
 
-/* Основные стили элементов управления и карточки */
-.gradient-text { font-size: 3rem; font-weight: bold; margin: 40px 0 10px; color: #ff99cc; }
-.track-card { background: #0d0e15; border: 1px solid #ff99cc; border-radius: 16px; padding: 24px; margin-bottom: 25px; text-align: left; }
-.play-btn { background: linear-gradient(45deg, #4da6ff, #ff99cc); border: none; padding: 12px 28px; border-radius: 25px; cursor: pointer; font-weight: bold; }
+/* Карточки, слайдеры и элементы интерфейса */
+.track-card { background: #0d0e15; border: 1px solid #ff99cc; border-radius: 16px; padding: 20px; margin-bottom: 25px; text-align: left; }
+.track-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.control-item input[type="range"] { width: 100%; }
