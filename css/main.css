@@ -1,6 +1,177 @@
-/* Крупный неоновый заголовок */
-.gradient-text { font-size: 2.2rem; font-weight: bold; margin: 25px 0 5px; color: #ff99cc; text-transform: lowercase; }
-.catalog-subtitle { font-size: 0.8rem; color: #888; margin-bottom: 30px; padding: 0 10px; }
+---
+---
+/* 1. ПОЛНЫЙ СБРОС И ТЕМНЫЙ ФОН */
+* { 
+  box-sizing: border-box !important; 
+  margin: 0; 
+  padding: 0; 
+  -webkit-appearance: none; /* Убираем системные стили Apple/Android */
+}
 
-/* Названия треков */
-.track-title { font-size: 1.2rem; font-weight: bold; color: #fff; }
+body { 
+  background-color: #050508 !important; 
+  color: #ffffff !important; 
+  font-family: 'Courier New', Courier, monospace !important; 
+  display: flex; 
+  justify-content: center; 
+  padding: 20px 15px; 
+}
+
+.wrapper { 
+  width: 100%; 
+  max-width: 500px; 
+  text-align: center; 
+}
+
+/* 2. АНИМИРОВАННЫЙ ЗАГОЛОВОК */
+.gradient-text { 
+  font-size: 2.5rem !important; 
+  font-weight: bold !important; 
+  margin: 25px 0 5px !important; 
+  text-transform: lowercase !important;
+  display: inline-block !important;
+  
+  background: linear-gradient(45deg, #4da6ff, #ff99cc, #4da6ff) !important;
+  background-size: 200% auto !important;
+  
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  
+  animation: shine 3s linear infinite !important;
+}
+
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.catalog-subtitle { 
+  font-size: 0.8rem; 
+  color: #666; 
+  margin-bottom: 30px; 
+  line-height: 1.4;
+}
+
+/* 3. КАРТОЧКИ ТРЕКОВ */
+.track-card { 
+  background: #0d0e15 !important; 
+  border: 1px solid #ff99cc !important; 
+  border-radius: 16px !important; 
+  padding: 20px !important; 
+  margin-bottom: 25px !important; 
+  text-align: left !important; 
+  box-shadow: 0 0 15px rgba(255, 153, 204, 0.1);
+}
+
+.track-header { 
+  display: flex !important; 
+  justify-content: space-between !important; 
+  align-items: center !important; 
+  margin-bottom: 20px !important; 
+}
+
+.track-title { 
+  font-size: 1.2rem !important; 
+  font-weight: bold !important; 
+  color: #fff !important; 
+}
+
+/* 4. КНОПКИ (ПРИНУДИТЕЛЬНЫЙ ГРАДИЕНТ) */
+.play-btn { 
+  background: linear-gradient(45deg, #4da6ff, #ff99cc) !important; 
+  border: none !important; 
+  padding: 10px 24px !important; 
+  border-radius: 25px !important; 
+  cursor: pointer !important; 
+  font-weight: bold !important; 
+  color: #050508 !important;
+  font-size: 0.9rem !important;
+  -webkit-appearance: none !important;
+}
+
+.copy-action-btn {
+  background: #161925 !important;
+  border: 1px solid #4da6ff !important;
+  color: #4da6ff !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-family: 'Courier New', monospace !important;
+  font-size: 0.75rem !important;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+/* 5. ПОЛЗУНКИ (СЛАЙДЕРЫ) */
+.track-controls {
+  margin-bottom: 20px;
+}
+
+.control-item {
+  margin-bottom: 15px;
+}
+
+.control-item label {
+  display: block;
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+/* Стилизация полосы ползунка */
+.control-item input[type="range"] { 
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 100% !important; 
+  background: #161925 !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  outline: none;
+}
+
+/* Стилизация кружка ползунка (Chrome, Safari, Android, iOS) */
+.control-item input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 50% !important;
+  background: #4da6ff !important; /* Голубой бегунок под цвет кнопок */
+  cursor: pointer !important;
+  box-shadow: 0 0 8px #4da6ff;
+}
+
+/* Стилизация кружка ползунка для Firefox */
+.control-item input[type="range"]::-moz-range-thumb {
+  width: 18px !important;
+  height: 18px !important;
+  border: none !important;
+  border-radius: 50% !important;
+  background: #4da6ff !important;
+  cursor: pointer !important;
+  box-shadow: 0 0 8px #4da6ff;
+}
+
+/* 6. БЛОК С КОДОМ */
+.code-wrapper {
+  margin-top: 15px;
+}
+
+pre {
+  background: #050508 !important;
+  border: 1px solid #161925 !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  font-size: 0.8rem !important;
+  color: #888 !important;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.footer {
+  font-size: 0.7rem;
+  color: #444;
+  margin: 20px 0;
+}
