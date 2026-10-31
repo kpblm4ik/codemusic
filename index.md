@@ -88,28 +88,24 @@ title: code;music — Процедурный кайф
     }
   });
 
-  // Редирект на GitHub Pull Request при отправке
+  // Перенаправление на GitHub для создания файла и Pull Request
   submitTrackBtn.addEventListener('click', () => {
-    const author = encodeURIComponent(trackAuthor.value.trim() || 'Anonymous');
-    const code = encodeURIComponent(trackCode.value.trim());
+    const rawAuthor = trackAuthor.value.trim() || 'Anonymous';
+    const rawCode = trackCode.value.trim();
     
-    if (!trackCode.value.trim()) {
+    if (!rawCode) {
       alert('Пожалуйста, вставь код трека!');
       return;
     }
 
-    // Формируем прямую ссылку на создание файла в твоем репозитории
-    // GitHub автоматически предложит сделать форк и Pull Request
-    const githubUrl = `https://github.com{author}.js&value=${code}`;
+    // Делаем имя файла безопасным для URL
+    const safeAuthor = encodeURIComponent(rawAuthor.replace(/[^a-zA-Z0-9-_]/g, ''));
+    const code = encodeURIComponent(rawCode);
+
+    // Прямая безопасная ссылка на создание нового js-файла в папке tracks твоего репозитория.
+    // GitHub сам предложит пользователю сделать форк и создать Pull Request.
+    const githubUrl = 'https://github.com' + safeAuthor + '.js&value=' + code;
     
     window.open(githubUrl, '_blank');
   });
-
-const openModalBtn = <button class="floating-add-btn" id="openModalBtn">+</button>
-const closeModalBtn = document.getElementById('closeModalBtn');
-const modalOverlay = document.getElementById('modalOverlay');
-const licenseAgreement = document.getElementById('licenseAgreement');
-const submitTrackBtn = document.getElementById('submitTrackBtn');
-const trackAuthor = document.getElementById('trackAuthor');
-const trackCode = document.getElementById('trackCode');
 </script>
