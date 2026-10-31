@@ -176,25 +176,8 @@ pre {
   margin: 20px 0;
 }
 
-/* 7. ПЛАВАЮЩАЯ КНОПКА ПЛЮСА И МОДАЛЬНОЕ ОКНО */
-.floating-add-btn {
-  position: fixed !important;
-  bottom: 25px !important;
-  right: 25px !important;
-  width: 60px !important;
-  height: 60px !important;
-  background: linear-gradient(45deg, #4da6ff, #ff99cc) !important;
-  border-radius: 50% !important;
-  z-index: 1000 !important;
-}
-.modal-overlay {
-  position: fixed !important;
-  inset: 0 !important;
-  background: rgba(5, 5, 8, 0.85) !important;
-  z-index: 2000 !important;
-}
-.modal-card {
-  background: #0d0e15 !important;
-  border-radius: 16px !important;
-  max-width: 450px !important;
-}
+/* Полный набор стилей для плавающей кнопки и модального окна */
+.floating-add-btn { position: fixed !important; bottom: 25px !important; right: 25px !important; width: 60px !important; height: 60px !important; z-index: 1000 !important; }
+.modal-overlay { position: fixed !important; inset: 0 !important; display: none !important; z-index: 2000 !important; }
+.modal-overlay.active { display: flex !important; }
+.modal-card { width: 100% !important; max-width: 450px !important; padding: 24px !important; }
