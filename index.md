@@ -1,10 +1,9 @@
 ---
 layout: default
 title: code;music — Процедурный кайф
-custom_css: css/main.css
 ---
 
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="{{ 'css/main.css' | relative_url }}">
 
 # code;music
 
