@@ -3,4 +3,4 @@ defaults:
       path: ""
     values:
       layout: "default"
-permalink: /:basename.html
+      permalink: /:basename.html
